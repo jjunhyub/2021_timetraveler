@@ -20,19 +20,20 @@ abs_dir = os.path.abspath(os.path.dirname(__file__))
 def load_net():
     #encoder_param = load_lua('/home/zouyj/projects/style_transfer/stylenas/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
     encoder_param = torchfile.load('/home/junhyub/documents/2021_timetraveler/models/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
+    models_directory = 'trained_models_aaai_addtrain'
     net_e = encoder(encoder_param)
     net_d0 = decoder0()
-    net_d0.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
+    net_d0.load_state_dict(torch.load(os.path.join(abs_dir, models_directory + '/decoder_epoch_2.pth.tar')))
     net_d1 = decoder1()
-    net_d1.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
+    net_d1.load_state_dict(torch.load(os.path.join(abs_dir, models_directory + '/decoder_epoch_2.pth.tar')))
     net_d2 = decoder2()
-    net_d2.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
+    net_d2.load_state_dict(torch.load(os.path.join(abs_dir, models_directory + '/decoder_epoch_2.pth.tar')))
     net_d3 = decoder3()
-    net_d3.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
+    net_d3.load_state_dict(torch.load(os.path.join(abs_dir, models_directory + '/decoder_epoch_2.pth.tar')))
     net_d4 = decoder4()
-    net_d4.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
+    net_d4.load_state_dict(torch.load(os.path.join(abs_dir, models_directory + '/decoder_epoch_2.pth.tar')))
     net_d5 = decoder5()
-    net_d5.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
+    net_d5.load_state_dict(torch.load(os.path.join(abs_dir, models_directory + '/decoder_epoch_2.pth.tar')))
     return net_e, net_d0, net_d1, net_d2, net_d3, net_d4, net_d5
 
 def get_test_list(root_dir):
@@ -128,9 +129,15 @@ if __name__ == '__main__':
     style_list = [i for i in style_list if '.jpg' in i]
     content_list.sort()
     style_list.sort()
+    print("here\n")
+    content_list
+    style_list
+    print("end\n")
+
     for k in range(len(style_list[:])):
         print(k)
-        content_path = content_list[k]
+        # content_path = content_list[k]
+        content_path = content_list[0]
         style_path = style_list[k]
         print('----- transfering pair %d -------' % (k))
         content = get_a_image(content_path)        

@@ -131,7 +131,7 @@ def train(args, encoder, decoder):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-g', '--gpu', default=0)
-    parser.add_argument('-s', '--save_dir', default=os.path.join(abs_dir, 'trained_models_aaai'))
+    parser.add_argument('-s', '--save_dir', default=os.path.join(abs_dir, 'trained_models_aaai_test'))
     parser.add_argument('-d', '--d_control', default='01010000000100000000000000001111')
     parser.add_argument('-me', '--max_epoch', default=2, type=int)
     parser.add_argument('-t', '--training_dataset')
