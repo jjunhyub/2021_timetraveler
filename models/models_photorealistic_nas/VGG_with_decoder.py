@@ -15,6 +15,7 @@ class encoder(nn.Module):
         # b = vgg._obj.modules[0].weight
         # c = vgg._obj.modules[0].weight
         # t = torch.Tensor(vgg._obj.modules[0].weight)
+        #torch.tensor를 그대로 사용할 경우 out of memory 문제가 발생할 수 있다.
         self.conv1 = nn.Conv2d(3,3,1,1,0)
         self.conv1.weight = torch.nn.Parameter(torch.Tensor(vgg._obj.modules[0].weight))
         self.conv1.bias = torch.nn.Parameter(torch.Tensor(vgg._obj.modules[0].bias))

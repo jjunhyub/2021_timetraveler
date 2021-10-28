@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            //"args": ["--training_dataset","/home/junhyub/data/training_data/unlabeled2017/"],
+            "args": ["--content","/home/junhyub/data/original_data/room/","--style","/home/junhyub/data/style_data/room/","--save_dir","/home/junhyub/data/result/"],
+        }
+    ]
+}

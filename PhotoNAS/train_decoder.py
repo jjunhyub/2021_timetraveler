@@ -1,7 +1,7 @@
 import sys
 
 # sys.path.insert(0, '/gpfs/share/home/1601210097/projects/style_transfer_aaai/stylenas/')
-sys.path.append('/home/junhyub/documents/StyleNAS/')
+sys.path.append('/home/junhyub/documents/2021_timetraveler/')
 import numpy as np
 import pandas as pd
 import torch
@@ -25,7 +25,7 @@ abs_dir = os.path.abspath(os.path.dirname(__file__))
 
 def load_nets():
     #encoder_param = load_lua('/gpfs/share/home/1601210097/projects/style_transfer_aaai/stylenas/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
-    encoder_param = torchfile.load('/home/junhyub/documents/StyleNAS/models/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
+    encoder_param = torchfile.load('/home/junhyub/documents/2021_timetraveler/models/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
 
     net_e = encoder(encoder_param)
     net_d = decoder()

@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/junhyub/documents/StyleNAS/')
+sys.path.append('/home/junhyub/documents/2021_timetraveler/')
 import numpy as np
 import os
 import cv2
@@ -19,7 +19,7 @@ abs_dir = os.path.abspath(os.path.dirname(__file__))
 
 def load_net():
     #encoder_param = load_lua('/home/zouyj/projects/style_transfer/stylenas/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
-    encoder_param = torchfile.load('/home/junhyub/documents/StyleNAS/models/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
+    encoder_param = torchfile.load('/home/junhyub/documents/2021_timetraveler/models/models_photorealistic_nas/vgg_normalised_conv5_1.t7')
     net_e = encoder(encoder_param)
     net_d0 = decoder0()
     net_d0.load_state_dict(torch.load(os.path.join(abs_dir, 'trained_models_aaai/decoder_epoch_2.pth.tar')))
@@ -93,6 +93,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--content')
     parser.add_argument('-s', '--style')
     parser.add_argument('-a', '--alpha', default=1.0)
+    #parser.add_argument('-d', '--d_control', default='01010000000100000000000000001111')
     parser.add_argument('-d', '--d_control', default='01010000000100000000000000001111')
     args = parser.parse_args()
     if not os.path.isdir(args.save_dir):
