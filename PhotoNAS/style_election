@@ -1,0 +1,26 @@
+import os
+
+def get_test_list(root_dir):
+    test_list = os.listdir(root_dir)
+    test_list = [os.path.join(root_dir, i) for i in test_list]
+    return test_list
+
+weather_list = ['spring','summer','autumn','winter']
+NUM_OF_WEATHER = 4
+NUM_OF_TIME = 4
+
+    
+content_list = get_test_list(os.getcwd()+'/img_input/')
+content_list = [i for i in content_list if '.jpg' in i]
+content_list.sort()
+
+
+for i in range(NUM_OF_WEATHER):
+    for j in range(NUM_OF_TIME):
+
+
+
+# get style image list
+style_list = get_test_list(args.style)
+style_list = [i for i in style_list if '.jpg' in i]
+style_list.sort()
